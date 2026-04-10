@@ -14,9 +14,17 @@
 #    limitations under the License.
 #
 
-FROM openjdk:17.0.2
-COPY . /usr/src/myapp
-WORKDIR /usr/src/myapp
-RUN chmod +x mvnw
-RUN ./mvnw clean package
-CMD ./mvnw cargo:run -P tomcat90
+#FROM openjdk:17.0.2
+#COPY . /usr/src/myapp
+#WORKDIR /usr/src/myapp
+#RUN chmod +x mvnw
+#RUN ./mvnw clean package
+#CMD ./mvnw cargo:run -P tomcat90
+
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+WORKDIR /app
+COPY . .
+RUN mvn clean package
+
+FROM tomcat:9-jdk17
+COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/
