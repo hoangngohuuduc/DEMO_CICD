@@ -13,8 +13,8 @@ spec:
         app: petshop
     spec:
       containers:
-      - name: petshop
-        image: sevenajay/petshop:latest
+      - name: demo
+        image: duchoang26/demo:latest
         ports:
         - containerPort: 8080
         imagePullPolicy: Always
