@@ -24,8 +24,8 @@
     - name: Push image
       command: docker push duchoang26/demo:latest
 
-   # - name: Run container
-    #  command: docker run -d --name pet1 -p 8081:8080 duchoang26/demo:latest
+   #- name: Run container
+    # command: docker run -d --name pet1 -p 8081:8080 duchoang26/demo:latest
     - name: Remove old container if exists
       command: docker rm -f pet1
       ignore_errors: yes
