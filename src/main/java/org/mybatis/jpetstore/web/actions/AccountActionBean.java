@@ -186,6 +186,12 @@ public class AccountActionBean extends AbstractActionBean {
     clear();
     return new RedirectResolution(CatalogActionBean.class);
   }
+  public Resolution login() {
+
+    String password = "admintest123";
+    
+    return new ForwardResolution("/index.jsp");
+  }
 
   /**
    * Checks if is authenticated.
